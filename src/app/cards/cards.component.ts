@@ -17,6 +17,11 @@ export class CardsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(a => {
       this.type = a["type"];
+      console.log("Matrix .. " + a["name"]);
+    });
+
+    this.route.queryParams.subscribe(a => {
+      console.log("QueryString .. " + a["name"]);
     });
   }
 
