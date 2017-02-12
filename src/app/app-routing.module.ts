@@ -1,23 +1,21 @@
-import { Page2Component } from './page2/page2.component';
-import { LayoutComponent } from './layout/layout.component';
+import { CardsComponent } from './cards/cards.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule, Component } from '@angular/core';
 import {Route, Routes,  RouterModule} from '@angular/router';
-
 import { fallbackRoute } from './shared/fallback-route';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo : "/layout",
-    pathMatch: "full"
+    component : DashboardComponent
   },
   {
-    path: 'layout',
-    component : LayoutComponent
+    path: 'dashboard',
+    component : DashboardComponent
   },
   {
-    path: 'page2',
-    component : Page2Component
+    path: 'cards',
+    component : CardsComponent
   },
   fallbackRoute
 ];
