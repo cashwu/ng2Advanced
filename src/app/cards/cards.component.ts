@@ -1,3 +1,4 @@
+import {Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsComponent implements OnInit {
 
-  constructor() { }
+  type:string;
+
+  constructor(private router: Router, private route: ActivatedRoute) { 
+
+  }
 
   ngOnInit() {
+    this.type = this.route.snapshot.params["type"];
   }
 
 }
