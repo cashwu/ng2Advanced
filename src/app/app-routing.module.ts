@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component : DashboardComponent  },
   { path: 'dashboard', component : DashboardComponent },
   { path: 'cards/:type', component : CardsComponent },
-  { path : "charts",
+  { path : "charts/:username",
     children : [
       { path : "flot", component : FlotComponent },
       { path : "radial", component : RadialComponent },
