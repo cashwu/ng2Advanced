@@ -1,18 +1,21 @@
 import { CardsComponent } from './cards/cards.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule, Component } from '@angular/core';
-import {Route, Routes,  RouterModule} from '@angular/router';
+import {PreloadAllModules, Route,  Routes,   RouterModule} from '@angular/router';
 import { fallbackRoute } from './shared/fallback-route';
 
 const routes: Routes = [
   { path: '', component : DashboardComponent  },
   { path: 'dashboard', component : DashboardComponent },
   { path: 'cards/:type', component : CardsComponent },
+  { path : "charts/:username", loadChildren : "./charts/charts.module#ChartsModule"},
   fallbackRoute
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy : PreloadAllModules
+  })],
   exports: [RouterModule],
   providers: []
 })
