@@ -26,7 +26,7 @@ export class CardsComponent implements OnInit {
   }
 
   goCards(type){
-    this.router.navigateByUrl("/cards/" + type);
+    this.router.navigate([type], { relativeTo: this.route });
   }
 
 }
