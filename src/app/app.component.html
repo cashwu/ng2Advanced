@@ -1,4 +1,17 @@
 <h1>
-  {{title}}
+    {{title}}
 </h1>
+
+<ul>
+    <li>
+        <a [routerLink]="['/']">Home</a>
+    </li>
+    <li>
+        <a [routerLink]="['/page2']">Page2</a>
+        <!--<a routerLink="/page2">Page2-2</a>-->
+    </li>
+</ul>
+
+<hr>
+
 <router-outlet></router-outlet>
