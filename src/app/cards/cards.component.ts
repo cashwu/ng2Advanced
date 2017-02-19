@@ -1,6 +1,6 @@
 import { SkyComponent } from './../sky/sky.component';
 import {Router, ActivatedRoute } from '@angular/router';
-import {ViewChild, Component,  OnInit} from '@angular/core';
+import {QueryList, ViewChildren,  ViewChild,   Component,    OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-cards',
@@ -12,7 +12,12 @@ export class CardsComponent implements OnInit {
   @ViewChild(SkyComponent)
   sky: SkyComponent;
 
+  @ViewChildren(SkyComponent)
+  skyes: QueryList<SkyComponent>;
+
   type:string;
+
+  counter: number = 0;
 
   constructor(private router: Router, private route: ActivatedRoute) { 
   }
@@ -24,6 +29,10 @@ export class CardsComponent implements OnInit {
 
   ngAfterViewInit(){
     console.log(this.sky.name);
+
+    this.skyes.forEach(a => {
+      console.log(a.titleImg);
+    });
   }
 
   ngOnInit() {
@@ -42,4 +51,7 @@ export class CardsComponent implements OnInit {
     this.router.navigate([type], { relativeTo: this.route });
   }
 
+  inrConter(){
+    this.counter++;
+  }
 }
