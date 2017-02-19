@@ -2,6 +2,6 @@ import { Route } from '@angular/router';
 
 export const fallbackRoute : Route = {
   path: '**', 
-  redirectTo: '/', 
+  redirectTo: '/form', 
   pathMatch: 'full' 
 }
