@@ -1,4 +1,5 @@
-import {FormArray, Validators,  FormGroup,  FormBuilder} from '@angular/forms';
+import { NoCashValidator } from './../shared/no-cash-validator';
+import {AbstractControl, FormArray,  Validators,   FormGroup,   FormBuilder} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -25,12 +26,12 @@ export class ReactiveFormComponent implements OnInit {
     this.form.addControl("email", this.fb.control("cash@cashwu.com", Validators.required));
 
     let group1: FormArray = <FormArray>this.form.controls['group1'];
-    group1.insert(group1.length, this.fb.control('Cash04'));
+    group1.insert(group1.length, this.fb.control('Cash04', NoCashValidator));
   }
 
-  getFieldInvalid(fieldName) {
-    return this.form.contains[fieldName].invalid;
+  getFieldInvalid(fieldName, prefix = "") {
+      console.log(fieldName, "fieldName");
+      console.log(prefix, "prefix");
+      return this.form.get(prefix+fieldName).invalid;
   }
-
-
 }
