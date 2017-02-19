@@ -1,11 +1,12 @@
 import { SkyComponent } from './../sky/sky.component';
 import {Router, ActivatedRoute } from '@angular/router';
-import {QueryList, ViewChildren,  ViewChild,   Component,    OnInit} from '@angular/core';
+import {ViewEncapsulation, QueryList,  ViewChildren,   ViewChild,    Component,     OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.css']
+  styleUrls: ['./cards.component.css'],
+  encapsulation: ViewEncapsulation.Native
 })
 export class CardsComponent implements OnInit {
 
